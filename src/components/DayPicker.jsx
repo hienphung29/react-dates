@@ -1,24 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
-import { css, withStyles, withStylesPropTypes } from 'react-with-styles';
+import {forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger} from 'airbnb-prop-types';
+import {css, withStyles, withStylesPropTypes} from 'react-with-styles';
 
 import moment from 'moment';
 import throttle from 'lodash/throttle';
 import isTouchDevice from 'is-touch-device';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-import { DayPickerPhrases } from '../defaultPhrases';
+import {DayPickerPhrases} from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 
 import CalendarMonthGrid from './CalendarMonthGrid';
 import DayPickerNavigation from './DayPickerNavigation';
-import DayPickerKeyboardShortcuts, {
-  TOP_LEFT,
-  TOP_RIGHT,
-  BOTTOM_RIGHT,
-} from './DayPickerKeyboardShortcuts';
+import DayPickerKeyboardShortcuts, {BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT,} from './DayPickerKeyboardShortcuts';
 
 import getNumberOfCalendarMonthWeeks from '../utils/getNumberOfCalendarMonthWeeks';
 import getCalendarMonthWidth from '../utils/getCalendarMonthWidth';
@@ -32,15 +28,15 @@ import DayOfWeekShape from '../shapes/DayOfWeekShape';
 import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
 
 import {
+  DAY_SIZE,
   HORIZONTAL_ORIENTATION,
+  INFO_POSITION_AFTER,
+  INFO_POSITION_BEFORE,
+  INFO_POSITION_BOTTOM,
+  INFO_POSITION_TOP,
+  MODIFIER_KEY_NAMES,
   VERTICAL_ORIENTATION,
   VERTICAL_SCROLLABLE,
-  DAY_SIZE,
-  INFO_POSITION_TOP,
-  INFO_POSITION_BOTTOM,
-  INFO_POSITION_BEFORE,
-  INFO_POSITION_AFTER,
-  MODIFIER_KEY_NAMES,
 } from '../constants';
 
 const MONTH_PADDING = 23;
@@ -110,6 +106,7 @@ const propTypes = forbidExtraProps({
   weekDayFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
   dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any,
 });
 
 export const defaultProps = {
@@ -171,6 +168,7 @@ export const defaultProps = {
   weekDayFormat: 'dd',
   phrases: DayPickerPhrases,
   dayAriaLabelFormat: undefined,
+  extraData: null,
 };
 
 class DayPicker extends React.PureComponent {

@@ -596,7 +596,8 @@ function (_ref) {
         noBorder = _this$props9.noBorder,
         transitionDuration = _this$props9.transitionDuration,
         verticalBorderSpacing = _this$props9.verticalBorderSpacing,
-        horizontalMonthPadding = _this$props9.horizontalMonthPadding;
+        horizontalMonthPadding = _this$props9.horizontalMonthPadding,
+        extraData = _this$props9.extraData;
     var _this$state5 = this.state,
         currentMonth = _this$state5.currentMonth,
         visibleDays = _this$state5.visibleDays;
@@ -644,7 +645,8 @@ function (_ref) {
       noBorder: noBorder,
       transitionDuration: transitionDuration,
       verticalBorderSpacing: verticalBorderSpacing,
-      horizontalMonthPadding: horizontalMonthPadding
+      horizontalMonthPadding: horizontalMonthPadding,
+      extraData: extraData
     });
   };
 

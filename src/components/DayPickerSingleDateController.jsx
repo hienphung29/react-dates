@@ -581,6 +581,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
       transitionDuration,
       verticalBorderSpacing,
       horizontalMonthPadding,
+      extraData,
     } = this.props;
 
     const { currentMonth, visibleDays } = this.state;
@@ -629,6 +630,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
         transitionDuration={transitionDuration}
         verticalBorderSpacing={verticalBorderSpacing}
         horizontalMonthPadding={horizontalMonthPadding}
+        extraData={extraData}
       />
     );
   }

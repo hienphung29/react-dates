@@ -22,7 +22,7 @@ import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import noflip from '../utils/noflip';
 import CalendarMonthGrid from './CalendarMonthGrid';
 import DayPickerNavigation from './DayPickerNavigation';
-import DayPickerKeyboardShortcuts, { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT } from './DayPickerKeyboardShortcuts';
+import DayPickerKeyboardShortcuts, { BOTTOM_RIGHT, TOP_LEFT, TOP_RIGHT } from './DayPickerKeyboardShortcuts';
 import getNumberOfCalendarMonthWeeks from '../utils/getNumberOfCalendarMonthWeeks';
 import getCalendarMonthWidth from '../utils/getCalendarMonthWidth';
 import calculateDimension from '../utils/calculateDimension';
@@ -32,7 +32,7 @@ import ModifiersShape from '../shapes/ModifiersShape';
 import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 import DayOfWeekShape from '../shapes/DayOfWeekShape';
 import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
-import { HORIZONTAL_ORIENTATION, VERTICAL_ORIENTATION, VERTICAL_SCROLLABLE, DAY_SIZE, INFO_POSITION_TOP, INFO_POSITION_BOTTOM, INFO_POSITION_BEFORE, INFO_POSITION_AFTER, MODIFIER_KEY_NAMES } from '../constants';
+import { DAY_SIZE, HORIZONTAL_ORIENTATION, INFO_POSITION_AFTER, INFO_POSITION_BEFORE, INFO_POSITION_BOTTOM, INFO_POSITION_TOP, MODIFIER_KEY_NAMES, VERTICAL_ORIENTATION, VERTICAL_SCROLLABLE } from '../constants';
 var MONTH_PADDING = 23;
 var PREV_TRANSITION = 'prev';
 var NEXT_TRANSITION = 'next';
@@ -92,7 +92,8 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   monthFormat: PropTypes.string,
   weekDayFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(DayPickerPhrases)),
-  dayAriaLabelFormat: PropTypes.string
+  dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any
 })) : {};
 export var defaultProps = {
   // calendar presentation props
@@ -149,7 +150,8 @@ export var defaultProps = {
   monthFormat: 'MMMM YYYY',
   weekDayFormat: 'dd',
   phrases: DayPickerPhrases,
-  dayAriaLabelFormat: undefined
+  dayAriaLabelFormat: undefined,
+  extraData: null
 };
 
 var DayPicker =
