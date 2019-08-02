@@ -48,7 +48,7 @@ const defaultProps = {
   phrases: CalendarDayPhrases,
 };
 
-class CalendarDay extends React.PureComponent {
+class CalendarDay extends React.Component {
   constructor(...args) {
     super(...args);
 
