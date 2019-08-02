@@ -6,6 +6,7 @@ import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
 
+import { isEqual } from 'lodash';
 import { DayPickerPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
@@ -202,6 +203,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
       initialVisibleMonth,
       numberOfMonths,
       enableOutsideDays,
+      extraData,
     } = nextProps;
     const {
       isOutsideRange: prevIsOutsideRange,
@@ -212,6 +214,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
       initialVisibleMonth: prevInitialVisibleMonth,
       focused: prevFocused,
       date: prevDate,
+      extraData: prevExtraData,
     } = this.props;
     let { visibleDays } = this.state;
 
@@ -266,7 +269,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
       modifiers = this.addModifier(modifiers, date, 'selected');
     }
 
-    if (didFocusChange || recomputePropModifiers) {
+    if (didFocusChange || recomputePropModifiers || !isEqual(extraData, prevExtraData)) {
       values(visibleDays).forEach((days) => {
         Object.keys(days).forEach((day) => {
           const momentObj = getPooledMoment(day);

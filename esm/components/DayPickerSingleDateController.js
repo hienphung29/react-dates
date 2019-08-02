@@ -15,6 +15,7 @@ import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'ai
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
+import { isEqual } from 'lodash';
 import { DayPickerPhrases } from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 import isSameDay from '../utils/isSameDay';
@@ -212,7 +213,8 @@ function (_ref) {
         isDayHighlighted = nextProps.isDayHighlighted,
         initialVisibleMonth = nextProps.initialVisibleMonth,
         numberOfMonths = nextProps.numberOfMonths,
-        enableOutsideDays = nextProps.enableOutsideDays;
+        enableOutsideDays = nextProps.enableOutsideDays,
+        extraData = nextProps.extraData;
     var _this$props = this.props,
         prevIsOutsideRange = _this$props.isOutsideRange,
         prevIsDayBlocked = _this$props.isDayBlocked,
@@ -221,7 +223,8 @@ function (_ref) {
         prevEnableOutsideDays = _this$props.enableOutsideDays,
         prevInitialVisibleMonth = _this$props.initialVisibleMonth,
         prevFocused = _this$props.focused,
-        prevDate = _this$props.date;
+        prevDate = _this$props.date,
+        prevExtraData = _this$props.extraData;
     var visibleDays = this.state.visibleDays;
     var recomputeOutsideRange = false;
     var recomputeDayBlocked = false;
@@ -272,7 +275,7 @@ function (_ref) {
       modifiers = this.addModifier(modifiers, date, 'selected');
     }
 
-    if (didFocusChange || recomputePropModifiers) {
+    if (didFocusChange || recomputePropModifiers || !isEqual(extraData, prevExtraData)) {
       values(visibleDays).forEach(function (days) {
         Object.keys(days).forEach(function (day) {
           var momentObj = getPooledMoment(day);
