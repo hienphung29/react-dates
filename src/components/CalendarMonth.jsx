@@ -172,6 +172,7 @@ class CalendarMonth extends React.PureComponent {
       renderMonthText,
       styles,
       verticalBorderSpacing,
+      extraData,
     } = this.props;
 
     const { weeks } = this.state;
@@ -236,6 +237,7 @@ class CalendarMonth extends React.PureComponent {
                     phrases,
                     modifiers: modifiers[toISODateString(day)],
                     ariaLabelFormat: dayAriaLabelFormat,
+                    extraData,
                   });
                   console.log('CalendarMonth -> calendarDay -> renderDayContents: ', renderDayContents);
                   return calendarDay;

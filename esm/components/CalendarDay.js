@@ -2,6 +2,7 @@ import _extends from "@babel/runtime/helpers/esm/extends";
 import _assertThisInitialized from "@babel/runtime/helpers/esm/assertThisInitialized";
 import _inheritsLoose from "@babel/runtime/helpers/esm/inheritsLoose";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+import shallowEqual from "enzyme-shallow-equal";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -32,7 +33,8 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   renderDayContents: PropTypes.func,
   ariaLabelFormat: PropTypes.string,
   // internationalization
-  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases))
+  phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
+  extraData: PropTypes.any
 })) : {};
 var defaultProps = {
   day: moment(),
@@ -47,13 +49,20 @@ var defaultProps = {
   renderDayContents: null,
   ariaLabelFormat: 'dddd, LL',
   // internationalization
-  phrases: CalendarDayPhrases
+  phrases: CalendarDayPhrases,
+  extraData: null
 };
 
 var CalendarDay =
 /*#__PURE__*/
-function (_React$Component) {
-  _inheritsLoose(CalendarDay, _React$Component);
+function (_ref) {
+  _inheritsLoose(CalendarDay, _ref);
+
+  var _proto = CalendarDay.prototype;
+
+  _proto[!React.PureComponent && "shouldComponentUpdate"] = function (nextProps, nextState) {
+    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
+  };
 
   function CalendarDay() {
     var _this;
@@ -62,12 +71,10 @@ function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this = _ref.call.apply(_ref, [this].concat(args)) || this;
     _this.setButtonRef = _this.setButtonRef.bind(_assertThisInitialized(_this));
     return _this;
   }
-
-  var _proto = CalendarDay.prototype;
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
     var _this2 = this;
@@ -165,15 +172,15 @@ function (_React$Component) {
   };
 
   return CalendarDay;
-}(React.Component);
+}(React.PureComponent || React.Component);
 
 CalendarDay.propTypes = process.env.NODE_ENV !== "production" ? propTypes : {};
 CalendarDay.defaultProps = defaultProps;
 export { CalendarDay as PureCalendarDay };
-export default withStyles(function (_ref) {
-  var _ref$reactDates = _ref.reactDates,
-      color = _ref$reactDates.color,
-      font = _ref$reactDates.font;
+export default withStyles(function (_ref2) {
+  var _ref2$reactDates = _ref2.reactDates,
+      color = _ref2$reactDates.color,
+      font = _ref2$reactDates.font;
   return {
     CalendarDay: {
       boxSizing: 'border-box',

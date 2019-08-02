@@ -174,7 +174,8 @@ function (_ref) {
         renderMonthElement = _this$props2.renderMonthElement,
         renderMonthText = _this$props2.renderMonthText,
         styles = _this$props2.styles,
-        verticalBorderSpacing = _this$props2.verticalBorderSpacing;
+        verticalBorderSpacing = _this$props2.verticalBorderSpacing,
+        extraData = _this$props2.extraData;
     var weeks = this.state.weeks;
     var monthTitle = renderMonthText ? renderMonthText(month) : month.format(monthFormat);
     var verticalScrollable = orientation === VERTICAL_SCROLLABLE;
@@ -213,7 +214,8 @@ function (_ref) {
           renderDayContents: renderDayContents,
           phrases: phrases,
           modifiers: modifiers[toISODateString(day)],
-          ariaLabelFormat: dayAriaLabelFormat
+          ariaLabelFormat: dayAriaLabelFormat,
+          extraData: extraData
         });
         console.log('CalendarMonth -> calendarDay -> renderDayContents: ', renderDayContents);
         return calendarDay;

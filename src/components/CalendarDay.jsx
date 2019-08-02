@@ -29,6 +29,7 @@ const propTypes = forbidExtraProps({
 
   // internationalization
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
+  extraData: PropTypes.any,
 });
 
 const defaultProps = {
@@ -46,9 +47,10 @@ const defaultProps = {
 
   // internationalization
   phrases: CalendarDayPhrases,
+  extraData: null,
 };
 
-class CalendarDay extends React.Component {
+class CalendarDay extends React.PureComponent {
   constructor(...args) {
     super(...args);
 
