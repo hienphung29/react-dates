@@ -58,6 +58,7 @@ const propTypes = forbidExtraProps({
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
   dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any,
 });
 
 const defaultProps = {
@@ -88,6 +89,7 @@ const defaultProps = {
   phrases: CalendarDayPhrases,
   dayAriaLabelFormat: undefined,
   verticalBorderSpacing: undefined,
+  extraData: null,
 };
 
 class CalendarMonth extends React.PureComponent {
@@ -180,7 +182,7 @@ class CalendarMonth extends React.PureComponent {
     const monthTitle = renderMonthText ? renderMonthText(month) : month.format(monthFormat);
 
     const verticalScrollable = orientation === VERTICAL_SCROLLABLE;
-
+    console.log('CalendarMonth render')
     return (
       <div
         {...css(

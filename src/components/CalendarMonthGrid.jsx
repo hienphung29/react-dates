@@ -65,6 +65,7 @@ const propTypes = forbidExtraProps({
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
   dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any,
 });
 
 const defaultProps = {
@@ -100,6 +101,7 @@ const defaultProps = {
   monthFormat: 'MMMM YYYY', // english locale
   phrases: CalendarDayPhrases,
   dayAriaLabelFormat: undefined,
+  extraData: null,
 };
 
 function getMonths(initialMonth, numberOfMonths, withoutTransitionMonths) {
@@ -265,6 +267,7 @@ class CalendarMonthGrid extends React.PureComponent {
       transitionDuration,
       verticalBorderSpacing,
       setMonthTitleHeight,
+      extraData,
     } = this.props;
 
     const { months } = this.state;
@@ -355,6 +358,7 @@ class CalendarMonthGrid extends React.PureComponent {
                 dayAriaLabelFormat={dayAriaLabelFormat}
                 verticalBorderSpacing={verticalBorderSpacing}
                 horizontalMonthPadding={horizontalMonthPadding}
+                extraData={extraData}
               />
             </div>
           );

@@ -959,7 +959,8 @@ function (_ref) {
         noBorder = _this$props11.noBorder,
         transitionDuration = _this$props11.transitionDuration,
         verticalBorderSpacing = _this$props11.verticalBorderSpacing,
-        horizontalMonthPadding = _this$props11.horizontalMonthPadding;
+        horizontalMonthPadding = _this$props11.horizontalMonthPadding,
+        extraData = _this$props11.extraData;
     var dayPickerHorizontalPadding = theme.reactDates.spacing.dayPickerHorizontalPadding;
     var isHorizontal = this.isHorizontal();
     var numOfWeekHeaders = this.isVertical() ? 1 : numberOfMonths;
@@ -1068,7 +1069,8 @@ function (_ref) {
       dayAriaLabelFormat: dayAriaLabelFormat,
       transitionDuration: transitionDuration,
       verticalBorderSpacing: verticalBorderSpacing,
-      horizontalMonthPadding: horizontalMonthPadding
+      horizontalMonthPadding: horizontalMonthPadding,
+      extraData: extraData
     }), verticalScrollable && this.renderNavigation()), !isTouch && !hideKeyboardShortcutsPanel && React.createElement(DayPickerKeyboardShortcuts, {
       block: this.isVertical() && !withPortal,
       buttonLocation: keyboardShortcutButtonLocation,

@@ -62,7 +62,8 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   // i18n
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-  dayAriaLabelFormat: PropTypes.string
+  dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any
 })) : {};
 var defaultProps = {
   enableOutsideDays: false,
@@ -96,7 +97,8 @@ var defaultProps = {
   monthFormat: 'MMMM YYYY',
   // english locale
   phrases: CalendarDayPhrases,
-  dayAriaLabelFormat: undefined
+  dayAriaLabelFormat: undefined,
+  extraData: null
 };
 
 function getMonths(initialMonth, numberOfMonths, withoutTransitionMonths) {
@@ -282,7 +284,8 @@ function (_ref) {
         dayAriaLabelFormat = _this$props5.dayAriaLabelFormat,
         transitionDuration = _this$props5.transitionDuration,
         verticalBorderSpacing = _this$props5.verticalBorderSpacing,
-        setMonthTitleHeight = _this$props5.setMonthTitleHeight;
+        setMonthTitleHeight = _this$props5.setMonthTitleHeight,
+        extraData = _this$props5.extraData;
     var months = this.state.months;
     var isVertical = orientation === VERTICAL_ORIENTATION;
     var isVerticalScrollable = orientation === VERTICAL_SCROLLABLE;
@@ -339,7 +342,8 @@ function (_ref) {
         setMonthTitleHeight: setMonthTitleHeight,
         dayAriaLabelFormat: dayAriaLabelFormat,
         verticalBorderSpacing: verticalBorderSpacing,
-        horizontalMonthPadding: horizontalMonthPadding
+        horizontalMonthPadding: horizontalMonthPadding,
+        extraData: extraData
       }));
     }));
   };

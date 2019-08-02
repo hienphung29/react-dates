@@ -54,7 +54,8 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   // i18n
   monthFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(CalendarDayPhrases)),
-  dayAriaLabelFormat: PropTypes.string
+  dayAriaLabelFormat: PropTypes.string,
+  extraData: PropTypes.any
 })) : {};
 var defaultProps = {
   month: moment(),
@@ -84,7 +85,8 @@ var defaultProps = {
   // english locale
   phrases: CalendarDayPhrases,
   dayAriaLabelFormat: undefined,
-  verticalBorderSpacing: undefined
+  verticalBorderSpacing: undefined,
+  extraData: null
 };
 
 var CalendarMonth =
@@ -176,6 +178,7 @@ function (_ref) {
     var weeks = this.state.weeks;
     var monthTitle = renderMonthText ? renderMonthText(month) : month.format(monthFormat);
     var verticalScrollable = orientation === VERTICAL_SCROLLABLE;
+    console.log('CalendarMonth render');
     return React.createElement("div", _extends({}, css(styles.CalendarMonth, {
       padding: "0 ".concat(horizontalMonthPadding, "px")
     }), {
