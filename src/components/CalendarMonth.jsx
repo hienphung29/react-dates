@@ -237,7 +237,7 @@ class CalendarMonth extends React.PureComponent {
                     modifiers: modifiers[toISODateString(day)],
                     ariaLabelFormat: dayAriaLabelFormat,
                   });
-                  console.log('CalendarMonth -> calendarDay: ', JSON.stringify(calendarDay));
+                  console.log('CalendarMonth -> calendarDay -> renderDayContents: ', renderDayContents);
                   return calendarDay;
                 })}
               </CalendarWeek>
