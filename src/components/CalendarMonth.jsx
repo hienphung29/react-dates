@@ -183,6 +183,7 @@ class CalendarMonth extends React.PureComponent {
 
     const verticalScrollable = orientation === VERTICAL_SCROLLABLE;
     console.log('CalendarMonth -> renderCalendarDay: ', renderCalendarDay);
+    console.log('CalendarMonth -> renderDayContents: ', renderDayContents);
     console.log(weeks ? `CalendarMonth -> weeks: ${weeks}` : 'CalendarMonth -> weeks: No week');
     return (
       <div
