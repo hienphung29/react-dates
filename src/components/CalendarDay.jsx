@@ -120,6 +120,8 @@ class CalendarDay extends React.PureComponent {
       ariaLabel,
     } = getCalendarDaySettings(day, ariaLabelFormat, daySize, modifiers, phrases);
 
+    console.log('Calendar Day -> renderDayContents: ', renderDayContents);
+
     return (
       <td
         {...css(
