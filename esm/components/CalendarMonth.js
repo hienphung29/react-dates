@@ -178,7 +178,8 @@ function (_ref) {
     var weeks = this.state.weeks;
     var monthTitle = renderMonthText ? renderMonthText(month) : month.format(monthFormat);
     var verticalScrollable = orientation === VERTICAL_SCROLLABLE;
-    console.log('CalendarMonth render');
+    console.log('CalendarMonth -> renderCalendarDay: ', renderCalendarDay);
+    console.log(weeks ? "CalendarMonth -> weeks: ".concat(weeks) : 'CalendarMonth -> weeks: No week');
     return React.createElement("div", _extends({}, css(styles.CalendarMonth, {
       padding: "0 ".concat(horizontalMonthPadding, "px")
     }), {
