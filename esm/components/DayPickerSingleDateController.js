@@ -601,6 +601,7 @@ function (_ref) {
     var _this$state5 = this.state,
         currentMonth = _this$state5.currentMonth,
         visibleDays = _this$state5.visibleDays;
+    console.log('Render with extraData: ', extraData);
     return React.createElement(DayPicker, {
       orientation: orientation,
       enableOutsideDays: enableOutsideDays,

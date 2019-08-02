@@ -585,6 +585,7 @@ export default class DayPickerSingleDateController extends React.PureComponent {
     } = this.props;
 
     const { currentMonth, visibleDays } = this.state;
+    console.log('Render with extraData: ', extraData);
 
     return (
       <DayPicker
