@@ -86,6 +86,7 @@ const propTypes = forbidExtraProps({
   dayAriaLabelFormat: PropTypes.string,
 
   isRTL: PropTypes.bool,
+  extraData: PropTypes.any,
 });
 
 const defaultProps = {
@@ -144,6 +145,7 @@ const defaultProps = {
   dayAriaLabelFormat: undefined,
 
   isRTL: false,
+  extraData: null,
 };
 
 export default class DayPickerSingleDateController extends React.PureComponent {
