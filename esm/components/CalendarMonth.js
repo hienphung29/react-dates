@@ -26,7 +26,7 @@ import toISODateString from '../utils/toISODateString';
 import ModifiersShape from '../shapes/ModifiersShape';
 import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 import DayOfWeekShape from '../shapes/DayOfWeekShape';
-import { HORIZONTAL_ORIENTATION, VERTICAL_SCROLLABLE, DAY_SIZE } from '../constants';
+import { DAY_SIZE, HORIZONTAL_ORIENTATION, VERTICAL_SCROLLABLE } from '../constants';
 var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_objectSpread({}, withStylesPropTypes, {
   month: momentPropTypes.momentObj,
   horizontalMonthPadding: nonNegativeInteger,
@@ -200,7 +200,7 @@ function (_ref) {
       return React.createElement(CalendarWeek, {
         key: i
       }, week.map(function (day, dayOfWeek) {
-        return renderCalendarDay({
+        var calendarDay = renderCalendarDay({
           key: dayOfWeek,
           day: day,
           daySize: daySize,
@@ -215,6 +215,8 @@ function (_ref) {
           modifiers: modifiers[toISODateString(day)],
           ariaLabelFormat: dayAriaLabelFormat
         });
+        console.log('CalendarMonth -> calendarDay: ', JSON.stringify(calendarDay));
+        return calendarDay;
       }));
     }))));
   };

@@ -23,11 +23,7 @@ import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 import DayOfWeekShape from '../shapes/DayOfWeekShape';
 
 
-import {
-  HORIZONTAL_ORIENTATION,
-  VERTICAL_SCROLLABLE,
-  DAY_SIZE,
-} from '../constants';
+import { DAY_SIZE, HORIZONTAL_ORIENTATION, VERTICAL_SCROLLABLE } from '../constants';
 
 const propTypes = forbidExtraProps({
   ...withStylesPropTypes,
@@ -225,21 +221,25 @@ class CalendarMonth extends React.PureComponent {
           <tbody>
             {weeks.map((week, i) => (
               <CalendarWeek key={i}>
-                {week.map((day, dayOfWeek) => renderCalendarDay({
-                  key: dayOfWeek,
-                  day,
-                  daySize,
-                  isOutsideDay: !day || day.month() !== month.month(),
-                  tabIndex: isVisible && isSameDay(day, focusedDate) ? 0 : -1,
-                  isFocused,
-                  onDayMouseEnter,
-                  onDayMouseLeave,
-                  onDayClick,
-                  renderDayContents,
-                  phrases,
-                  modifiers: modifiers[toISODateString(day)],
-                  ariaLabelFormat: dayAriaLabelFormat,
-                }))}
+                {week.map((day, dayOfWeek) => {
+                  const calendarDay = renderCalendarDay({
+                    key: dayOfWeek,
+                    day,
+                    daySize,
+                    isOutsideDay: !day || day.month() !== month.month(),
+                    tabIndex: isVisible && isSameDay(day, focusedDate) ? 0 : -1,
+                    isFocused,
+                    onDayMouseEnter,
+                    onDayMouseLeave,
+                    onDayClick,
+                    renderDayContents,
+                    phrases,
+                    modifiers: modifiers[toISODateString(day)],
+                    ariaLabelFormat: dayAriaLabelFormat,
+                  });
+                  console.log('CalendarMonth -> calendarDay: ', JSON.stringify(calendarDay));
+                  return calendarDay;
+                })}
               </CalendarWeek>
             ))}
           </tbody>
