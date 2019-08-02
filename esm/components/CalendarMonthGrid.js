@@ -294,7 +294,6 @@ function (_ref) {
     var width = isVertical || isVerticalScrollable ? calendarMonthWidth : (numberOfMonths + 2) * calendarMonthWidth;
     var transformType = isVertical || isVerticalScrollable ? 'translateY' : 'translateX';
     var transformValue = "".concat(transformType, "(").concat(translationValue, "px)");
-    console.log('CalendarMonthGrid render');
     return React.createElement("div", _extends({}, css(styles.CalendarMonthGrid, isHorizontal && styles.CalendarMonthGrid__horizontal, isVertical && styles.CalendarMonthGrid__vertical, isVerticalScrollable && styles.CalendarMonthGrid__vertical_scrollable, isAnimating && styles.CalendarMonthGrid__animating, isAnimating && transitionDuration && {
       transition: "transform ".concat(transitionDuration, "ms ease-in-out")
     }, _objectSpread({}, getTransformStyles(transformValue), {

@@ -26,7 +26,7 @@ import { addModifier as _addModifier, deleteModifier as _deleteModifier } from '
 import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 import DayOfWeekShape from '../shapes/DayOfWeekShape';
 import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
-import { HORIZONTAL_ORIENTATION, VERTICAL_SCROLLABLE, DAY_SIZE, INFO_POSITION_BOTTOM } from '../constants';
+import { DAY_SIZE, HORIZONTAL_ORIENTATION, INFO_POSITION_BOTTOM, VERTICAL_SCROLLABLE } from '../constants';
 import DayPicker from './DayPicker';
 import getPooledMoment from '../utils/getPooledMoment';
 var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps({
@@ -604,7 +604,6 @@ function (_ref) {
     var _this$state5 = this.state,
         currentMonth = _this$state5.currentMonth,
         visibleDays = _this$state5.visibleDays;
-    console.log('Render with extraData: ', extraData);
     return React.createElement(DayPicker, {
       orientation: orientation,
       enableOutsideDays: enableOutsideDays,

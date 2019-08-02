@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import momentPropTypes from 'react-moment-proptypes';
-import { forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
+import {forbidExtraProps, mutuallyExclusiveProps, nonNegativeInteger} from 'airbnb-prop-types';
 import moment from 'moment';
 import values from 'object.values';
 import isTouchDevice from 'is-touch-device';
 
-import { isEqual } from 'lodash';
-import { DayPickerPhrases } from '../defaultPhrases';
+import {isEqual} from 'lodash';
+import {DayPickerPhrases} from '../defaultPhrases';
 import getPhrasePropTypes from '../utils/getPhrasePropTypes';
 
 import isSameDay from '../utils/isSameDay';
@@ -16,18 +16,13 @@ import isAfterDay from '../utils/isAfterDay';
 import getVisibleDays from '../utils/getVisibleDays';
 
 import toISODateString from '../utils/toISODateString';
-import { addModifier, deleteModifier } from '../utils/modifiers';
+import {addModifier, deleteModifier} from '../utils/modifiers';
 
 import ScrollableOrientationShape from '../shapes/ScrollableOrientationShape';
 import DayOfWeekShape from '../shapes/DayOfWeekShape';
 import CalendarInfoPositionShape from '../shapes/CalendarInfoPositionShape';
 
-import {
-  HORIZONTAL_ORIENTATION,
-  VERTICAL_SCROLLABLE,
-  DAY_SIZE,
-  INFO_POSITION_BOTTOM,
-} from '../constants';
+import {DAY_SIZE, HORIZONTAL_ORIENTATION, INFO_POSITION_BOTTOM, VERTICAL_SCROLLABLE,} from '../constants';
 
 import DayPicker from './DayPicker';
 import getPooledMoment from '../utils/getPooledMoment';
@@ -588,7 +583,6 @@ export default class DayPickerSingleDateController extends React.PureComponent {
     } = this.props;
 
     const { currentMonth, visibleDays } = this.state;
-    console.log('Render with extraData: ', extraData);
 
     return (
       <DayPicker

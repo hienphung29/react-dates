@@ -179,9 +179,6 @@ class CalendarMonth extends React.PureComponent {
     const monthTitle = renderMonthText ? renderMonthText(month) : month.format(monthFormat);
 
     const verticalScrollable = orientation === VERTICAL_SCROLLABLE;
-    console.log('CalendarMonth -> renderCalendarDay: ', renderCalendarDay);
-    console.log('CalendarMonth -> renderDayContents: ', renderDayContents);
-    console.log(weeks ? `CalendarMonth -> weeks: ${weeks}` : 'CalendarMonth -> weeks: No week');
     return (
       <div
         {...css(
@@ -239,7 +236,6 @@ class CalendarMonth extends React.PureComponent {
                     ariaLabelFormat: dayAriaLabelFormat,
                     extraData,
                   });
-                  console.log('CalendarMonth -> calendarDay -> renderDayContents: ', renderDayContents);
                   return calendarDay;
                 })}
               </CalendarWeek>
